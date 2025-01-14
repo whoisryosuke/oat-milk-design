@@ -21,7 +21,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write src/**/*.{css,js,tsx,json}",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 4200",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -57,6 +57,7 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.0.7",
+    "zustand": "^5.0.3"
   }
 }
