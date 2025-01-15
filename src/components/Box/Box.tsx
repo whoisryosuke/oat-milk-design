@@ -28,6 +28,14 @@ type Props = {
   alignContent?: CSSProperties["alignContent"];
   alignItems?: CSSProperties["alignItems"];
   alignSelf?: CSSProperties["alignSelf"];
+
+  borderStyle?: CSSProperties["borderStyle"];
+  borderWidth?: CSSProperties["borderWidth"];
+  borderLeftWidth?: CSSProperties["borderLeftWidth"];
+  borderRightWidth?: CSSProperties["borderRightWidth"];
+  borderTopWidth?: CSSProperties["borderTopWidth"];
+  borderBottomWidth?: CSSProperties["borderBottomWidth"];
+  borderColor?: keyof ColorTheme["colors"] | CSSProperties["borderColor"];
 };
 
 const Box = styled.div<Props>`
@@ -52,6 +60,18 @@ const Box = styled.div<Props>`
   align-content: ${({ alignContent }) => alignContent ?? "normal"};
   align-items: ${({ alignItems }) => alignItems ?? "legacy"};
   align-self: ${({ alignSelf }) => alignSelf ?? "auto"};
+
+  border-style: ${({ borderStyle }) => borderStyle ?? "none"};
+  border-left-width: ${({ theme, borderLeftWidth, borderWidth }) =>
+    up([borderLeftWidth, borderWidth], theme.space, "0px")};
+  border-right-width: ${({ theme, borderRightWidth, borderWidth }) =>
+    up([borderRightWidth, borderWidth], theme.space, "0px")};
+  border-top-width: ${({ theme, borderTopWidth, borderWidth }) =>
+    up([borderTopWidth, borderWidth], theme.space, "0px")};
+  border-bottom-width: ${({ theme, borderBottomWidth, borderWidth }) =>
+    up([borderBottomWidth, borderWidth], theme.space, "0px")};
+  border-color: ${({ theme, borderColor }) =>
+    up([borderColor], theme.colors, "transparent") ?? "none"};
 `;
 
 export default Box;
