@@ -5,23 +5,22 @@ import { up } from "../../utils/theme";
 import { CSSProperties } from "react";
 import { TEXT_STYLES } from "../../themes/tokens";
 
-type Props = {
-  type?: keyof typeof TEXT_STYLES;
+export type TextProps = {
   color?: keyof ColorTheme["colors"];
-  fontFamily?: keyof BaseTheme["fonts"];
-  fontSize?: keyof BaseTheme["fontSizes"];
-  fontWeight?: keyof BaseTheme["fontWeights"];
-  lineHeight?: keyof BaseTheme["lineHeights"];
+  fontFamily?: keyof BaseTheme["fonts"] | CSSProperties["fontFamily"];
+  fontSize?: keyof BaseTheme["fontSizes"] | CSSProperties["fontSize"];
+  fontWeight?: keyof BaseTheme["fontWeights"] | CSSProperties["fontWeight"];
+  lineHeight?: keyof BaseTheme["lineHeights"] | CSSProperties["lineHeight"];
   display?: CSSProperties["display"];
 };
 
-const Text = styled.div<Props>`
+const Text = styled.div<TextProps>`
   color: ${({ theme, color }) => up([color], theme.colors, "inherit")};
 
   font-family: ${({ theme, fontFamily }) =>
     up([fontFamily], theme.fonts, "sans-serif")};
-  font-size: ${({ theme, fontSize, type }) =>
-    type ? TEXT_STYLES[type] : up([fontSize], theme.fontSizes, "1rem")};
+  font-size: ${({ theme, fontSize }) =>
+    up([fontSize], theme.fontSizes, "1rem")};
   font-weight: ${({ theme, fontWeight }) =>
     up([fontWeight], theme.fontWeights, "normal")};
   line-height: ${({ theme, lineHeight }) =>

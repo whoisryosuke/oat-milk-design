@@ -61,10 +61,3 @@ export const FontSize: Story = {
     children: "Text",
   },
 };
-
-export const Type: Story = {
-  args: {
-    type: "h2",
-    children: "Text",
-  },
-};
