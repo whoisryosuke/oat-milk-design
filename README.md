@@ -1,18 +1,22 @@
-# React Vite Library Boilerplate
+# Oat Milk Design
 
-Create code libraries using React, Typescript, and Vite to automatically release to NPM.
-
-For example, you could create a component library for a design system (so someone can `import { ComponentName } from 'your-custom-library'`).
+Design system and UI components for prototyping.
 
 ## Getting Started
+
+1. Install the library: `yarn add @whoisryosuke/oat-milk-design`
+1. Wrap your app in the `<AppWrapper>` component.
+1. Use the components!: `import {Button} from '@whoisryosuke/oat-milk-design'`
+
+## Development
 
 ### Preview the code
 
 1. Clone this project: `git clone git@github.com:whoisryosuke/react-vite-library-boilerplate.git`
 1. Install dependencies: `yarn`
-1. Start the dev server: `yarn dev`
+1. Start the dev server: `yarn storybook`
 
-Open the app in your web browser: http://localhost:5174/
+Open the app in your web browser: http://localhost:4200/
 
 ### Write code
 
