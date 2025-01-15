@@ -18,47 +18,19 @@ const shadows = {
 export const generateDarkTheme = (color: ThemeColors) => ({
   colors: {
     text: BASE_COLORS["gray-0"],
-    textOverlay: "rgba(234,234,241,0.7)",
-    textInverted: "rgba(16,16,9,1)",
-    reading: "rgba(221,221,228,1)",
+    disabled: BASE_COLORS["gray-7"],
+
     background: BASE_COLORS["gray-9"],
-    background_level1: BASE_COLORS["gray-8"],
-    background_level2: BASE_COLORS["gray-7"],
-    background_level3: BASE_COLORS["gray-6"],
-    background_overlay: "rgba(0,0,0,0.8)",
     icon: BASE_COLORS["gray-5"],
-    button: {
-      bg: {
-        default: `linear-gradient(180deg, ${BASE_COLORS["gray-7"]} 0%, ${BASE_COLORS["gray-8"]} 65%)`,
-        hovered: `linear-gradient(180deg, ${BASE_COLORS["gray-8"]} 0%, ${BASE_COLORS["gray-9"]} 100%)`,
-        pressed: `linear-gradient(180deg, ${BASE_COLORS["gray-8"]} 42.5%, ${BASE_COLORS["gray-7"]} 100%)`,
-      },
-      text: {
-        default: BASE_COLORS["gray-0"],
-        disabled: "rgba(0,0,0,0.2)",
-      },
-      border: {
-        default: {
-          color: BASE_COLORS["gray-9"],
-        },
-        hovered: {
-          color: BASE_COLORS[`${color}-5`],
-        },
-      },
-    },
-    input: {
-      bg: {
-        default: BASE_COLORS["gray-9"],
-      },
-    },
-    primary: {
-      default: BASE_COLORS[`${color}-4`],
-      hovered: BASE_COLORS[`${color}-5`],
-      pressed: BASE_COLORS[`${color}-6`],
-    },
-    // secondary: primaryColors.purple[500],
-    muted: "#f6f6f9",
-    highlight: "hsla(205, 100%, 40%, 0.125)",
+
+    border: BASE_COLORS["gray-9"],
+    borderHovered: BASE_COLORS[`${color}-5`],
+
+    interactiveBg: BASE_COLORS[`${color}-4`],
+    interactiveBgHovered: BASE_COLORS[`${color}-5`],
+    interactiveBgPressed: BASE_COLORS[`${color}-6`],
+
+    inputBg: BASE_COLORS["gray-9"],
 
     ...BASE_COLORS,
   },
@@ -67,11 +39,9 @@ export const generateDarkTheme = (color: ThemeColors) => ({
     primary: `linear-gradient(90deg, ${BASE_COLORS[`${color}-2`]} 0%, ${
       BASE_COLORS[`${color}-4`]
     } 100%)`,
-    button: {
-      active: `linear-gradient(180deg, ${BASE_COLORS[`${color}-7`]} 42.5%, ${
-        BASE_COLORS[`${color}-8`]
-      } 100%)`,
-    },
+    button: `linear-gradient(180deg, ${BASE_COLORS[`${color}-7`]} 42.5%, ${
+      BASE_COLORS[`${color}-8`]
+    } 100%)`,
   },
 
   shadows: shadows,
