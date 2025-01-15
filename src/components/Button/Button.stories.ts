@@ -45,9 +45,9 @@ export const Large: Story = {
   },
 };
 
-export const Small: Story = {
+export const Disabled: Story = {
   args: {
-    size: "small",
+    disabled: true,
     children: "Button",
   },
 };
