@@ -5,8 +5,19 @@ Design system and UI components for prototyping.
 ## Getting Started
 
 1. Install the library: `yarn add @whoisryosuke/oat-milk-design`
-1. Wrap your app in the `<AppWrapper>` component.
-1. Use the components!: `import {Button} from '@whoisryosuke/oat-milk-design'`
+2. Wrap your app in the `<AppWrapper>` component.
+3. Add the fonts to your app wherever appropriate (ideally in the `<head>` of the HTML):
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter+Tight:ital,wght@0,600;1,600&display=swap"
+  rel="stylesheet"
+/>
+```
+
+4. Use the components!: `import {Button} from '@whoisryosuke/oat-milk-design'`
 
 ## Development
 

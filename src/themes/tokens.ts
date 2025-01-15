@@ -44,7 +44,7 @@ export const MEDIA_QUERIES: MediaQueries = {
 
 export const FONTS = {
   body: `'Inter Tight', Helvetiva Neue, Helvetica, Arial, sans-serif`,
-  heading: `'Inter Tight', Montserrat, Helvetica, Arial, sans-serif`,
+  heading: `'Hubot Sans', 'Inter Tight', Montserrat, Helvetica, Arial, sans-serif`,
   monospace: "'Roboto Mono', Menlo, monospace",
 };
 
