@@ -59,6 +59,8 @@ export const generateDarkTheme = (color: ThemeColors) => ({
     // secondary: primaryColors.purple[500],
     muted: "#f6f6f9",
     highlight: "hsla(205, 100%, 40%, 0.125)",
+
+    ...BASE_COLORS,
   },
 
   gradients: {
