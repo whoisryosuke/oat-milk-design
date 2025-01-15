@@ -1,35 +1,42 @@
 import { styled } from "styled-components";
 import { BaseTheme } from "../../themes/base";
-import { CSSProperties } from "react";
+import { CSSProperties, PropsWithChildren } from "react";
 import { up } from "../../utils/theme";
+import Text, { TextProps } from "../Text/Text";
+import { ColorTheme } from "../../themes/colors/dark";
 
-type Props = {
-  p?: keyof BaseTheme["space"];
-  px?: keyof BaseTheme["space"];
-  py?: keyof BaseTheme["space"];
-  pl?: keyof BaseTheme["space"];
-  pr?: keyof BaseTheme["space"];
-  pb?: keyof BaseTheme["space"];
-  pt?: keyof BaseTheme["space"];
-  m?: keyof BaseTheme["space"];
-  mx?: keyof BaseTheme["space"];
-  my?: keyof BaseTheme["space"];
-  ml?: keyof BaseTheme["space"];
-  mr?: keyof BaseTheme["space"];
-  mb?: keyof BaseTheme["space"];
-  mt?: keyof BaseTheme["space"];
-  borderRadius?: keyof BaseTheme["radius"];
-  display?: CSSProperties["display"];
-  justifyContent?: CSSProperties["justifyContent"];
-  justifyItems?: CSSProperties["justifyItems"];
-  justifySelf?: CSSProperties["justifySelf"];
-  alignContent?: CSSProperties["alignContent"];
-  alignItems?: CSSProperties["alignItems"];
-  alignSelf?: CSSProperties["alignSelf"];
-};
+type Props = React.HTMLProps<HTMLButtonElement> &
+  TextProps & {
+    bg?: keyof ColorTheme["colors"];
+    bgHover?: keyof ColorTheme["colors"];
+    bgPress?: keyof ColorTheme["colors"];
+    p?: keyof BaseTheme["space"];
+    px?: keyof BaseTheme["space"];
+    py?: keyof BaseTheme["space"];
+    pl?: keyof BaseTheme["space"];
+    pr?: keyof BaseTheme["space"];
+    pb?: keyof BaseTheme["space"];
+    pt?: keyof BaseTheme["space"];
+    m?: keyof BaseTheme["space"];
+    mx?: keyof BaseTheme["space"];
+    my?: keyof BaseTheme["space"];
+    ml?: keyof BaseTheme["space"];
+    mr?: keyof BaseTheme["space"];
+    mb?: keyof BaseTheme["space"];
+    mt?: keyof BaseTheme["space"];
+    borderRadius?: keyof BaseTheme["radius"];
+    display?: CSSProperties["display"];
+    justifyContent?: CSSProperties["justifyContent"];
+    justifyItems?: CSSProperties["justifyItems"];
+    justifySelf?: CSSProperties["justifySelf"];
+    alignContent?: CSSProperties["alignContent"];
+    alignItems?: CSSProperties["alignItems"];
+    alignSelf?: CSSProperties["alignSelf"];
+  };
 
-const Button = styled.button<Props>`
-  background: ${({ theme }) => theme.colors.interactiveBg};
+const StyledButton = styled.button<Props>`
+  background-color: ${({ theme, bg }) =>
+    up([bg], theme.colors, theme.colors.interactiveBg)};
   color: ${({ theme }) => theme.colors.text};
   border-radius: ${({ theme, borderRadius }) =>
     borderRadius ? theme.radius[borderRadius] : 0};
@@ -53,39 +60,37 @@ const Button = styled.button<Props>`
   align-items: ${({ alignItems }) => alignItems ?? "legacy"};
   align-self: ${({ alignSelf }) => alignSelf ?? "auto"};
 
-  font-family: ${({ theme }) => theme.fonts.body};
-  font-weight: ${({ theme }) => theme.fontWeights.medium};
-  font-size: ${({ theme }) => theme.fontSizes["1"]};
-  line-height: ${({ theme }) => theme.fontSizes["2"]};
-
-  border: 2.5px solid ${({ theme }) => theme.colors.border};
-  box-shadow: ${({ theme }) => theme.shadows.default};
-  border-radius: ${({ theme }) => theme.space[5]};
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  border: 1.5px solid
+    ${({ theme, bgHover }) => up([bgHover], theme.colors, theme.colors.border)};
+  text-shadow: ${({ theme }) => theme.shadows.text};
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.borderHovered};
-    background: ${({ theme }) => theme.colors.interactiveBgHovered};
-    box-shadow: ${({ theme }) => theme.shadows.hovered};
+    border-color: ${({ theme, bgPress }) =>
+      up([bgPress], theme.colors, theme.colors.borderHovered)};
+    background: ${({ theme, bgHover }) =>
+      up([bgHover], theme.colors, theme.colors.interactiveBgHovered)};
   }
 
   &[data-pressed="true"],
   &:active {
     font-weight: ${({ theme }) => theme.fontWeights.bold};
-    background: ${({ theme }) => theme.colors.interactiveBgPressed};
-    border-color: ${({ theme }) => theme.colors.borderHovered};
-    box-shadow: ${({ theme }) => theme.shadows.hovered};
+    background: ${({ theme, bgPress }) =>
+      up([bgPress], theme.colors, theme.colors.interactiveBgPressed)};
+    border-color: ${({ theme, bgPress }) =>
+      up([bgPress], theme.colors, theme.colors.borderHovered)};
   }
 
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.interactiveBgPressed};
+    outline: 2px solid
+      ${({ theme, bgPress }) =>
+        up([bgPress], theme.colors, theme.colors.interactiveBgPressed)};
     outline-offset: -1px;
   }
 
   &:disabled {
-    border-color: ${({ theme }) => theme.colors.disabled};
+    border-color: ${({ theme }) => theme.colors.borderDisabled};
     background: ${({ theme }) => theme.colors.disabled};
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.disabledText};
   }
 
   /* Animation */
@@ -96,10 +101,35 @@ const Button = styled.button<Props>`
   }
 `;
 
+const Button = ({
+  children,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  ...props
+}: PropsWithChildren<Props>) => {
+  return (
+    <StyledButton {...props}>
+      <Text
+        as="span"
+        fontFamily={fontFamily}
+        fontSize={fontSize}
+        fontWeight={fontWeight}
+        lineHeight={lineHeight}
+      >
+        {children}
+      </Text>
+    </StyledButton>
+  );
+};
+
 Button.defaultProps = {
   px: 6,
   py: 3,
-  borderRadius: 2,
+  borderRadius: 4,
+  fontSize: 2,
+  lineHeight: 3,
 };
 
 export default Button;

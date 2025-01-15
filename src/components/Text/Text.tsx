@@ -5,7 +5,7 @@ import { up } from "../../utils/theme";
 import { CSSProperties } from "react";
 import { TEXT_STYLES } from "../../themes/tokens";
 
-export type TextProps = {
+export type TextProps = React.HTMLProps<HTMLParagraphElement> & {
   color?: keyof ColorTheme["colors"];
   fontFamily?: keyof BaseTheme["fonts"] | CSSProperties["fontFamily"];
   fontSize?: keyof BaseTheme["fontSizes"] | CSSProperties["fontSize"];
@@ -14,7 +14,7 @@ export type TextProps = {
   display?: CSSProperties["display"];
 };
 
-const Text = styled.div<TextProps>`
+const Text = styled.p<TextProps>`
   color: ${({ theme, color }) => up([color], theme.colors, "inherit")};
 
   font-family: ${({ theme, fontFamily }) =>

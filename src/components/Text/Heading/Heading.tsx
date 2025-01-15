@@ -8,7 +8,14 @@ type Props = TextProps & {
 };
 
 const Heading = ({ type = "h1", ...props }: PropsWithChildren<Props>) => {
-  return <Text fontSize={TEXT_STYLES[type]} lineHeight="1.5rem" {...props} />;
+  return (
+    <Text
+      as={type}
+      fontSize={TEXT_STYLES[type]}
+      lineHeight="1.5rem"
+      {...props}
+    />
+  );
 };
 
 export default Heading;

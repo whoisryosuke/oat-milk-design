@@ -34,13 +34,20 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
+    bg: "pink-4",
+    bgHover: "pink-5",
+    bgPress: "pink-6",
     children: "Button",
   },
 };
 
 export const Large: Story = {
   args: {
-    size: "large",
+    fontSize: 6,
+    lineHeight: 7,
+    borderRadius: 5,
+    px: 9,
+    py: 4,
     children: "Button",
   },
 };

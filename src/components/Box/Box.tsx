@@ -4,7 +4,7 @@ import { BaseTheme } from "../../themes/base";
 import { up } from "../../utils/theme";
 import { CSSProperties } from "react";
 
-type Props = {
+type Props = React.HTMLProps<HTMLDivElement> & {
   bg?: keyof ColorTheme["colors"];
   color?: keyof ColorTheme["colors"];
   p?: keyof BaseTheme["space"];
