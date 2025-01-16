@@ -21,6 +21,18 @@ Design system and UI components for prototyping.
 
 4. Use the components!: `import {Button} from '@whoisryosuke/oat-milk-design'`
 
+### Icons
+
+Use Box Icons from `react-icons`:
+
+```shell
+yarn add react-icons
+```
+
+Check the stories for examples of using icons from that library (like changing the `size`).
+
+The colors should sync with the component since the icon library uses `currentcolor`, so as long as the parent component's `color` is what you need, it'll look right.
+
 ## Development
 
 ### Preview the code
