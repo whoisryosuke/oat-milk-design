@@ -1,40 +1,44 @@
 import { styled } from "styled-components";
 import { BaseTheme } from "../../themes/base";
-import { CSSProperties, PropsWithChildren } from "react";
+import { CSSProperties, PropsWithChildren, ReactNode } from "react";
 import { up } from "../../utils/theme";
 import Text, { TextProps } from "../Text/Text";
 import { ColorTheme } from "../../themes/colors/dark";
 
-type Props = React.HTMLProps<HTMLButtonElement> &
-  TextProps & {
-    bg?: keyof ColorTheme["colors"];
-    bgHover?: keyof ColorTheme["colors"];
-    bgPress?: keyof ColorTheme["colors"];
-    p?: keyof BaseTheme["space"];
-    px?: keyof BaseTheme["space"];
-    py?: keyof BaseTheme["space"];
-    pl?: keyof BaseTheme["space"];
-    pr?: keyof BaseTheme["space"];
-    pb?: keyof BaseTheme["space"];
-    pt?: keyof BaseTheme["space"];
-    m?: keyof BaseTheme["space"];
-    mx?: keyof BaseTheme["space"];
-    my?: keyof BaseTheme["space"];
-    ml?: keyof BaseTheme["space"];
-    mr?: keyof BaseTheme["space"];
-    mb?: keyof BaseTheme["space"];
-    mt?: keyof BaseTheme["space"];
-    borderRadius?: keyof BaseTheme["radius"];
-    display?: CSSProperties["display"];
-    justifyContent?: CSSProperties["justifyContent"];
-    justifyItems?: CSSProperties["justifyItems"];
-    justifySelf?: CSSProperties["justifySelf"];
-    alignContent?: CSSProperties["alignContent"];
-    alignItems?: CSSProperties["alignItems"];
-    alignSelf?: CSSProperties["alignSelf"];
+type StyledProps = React.HTMLProps<HTMLButtonElement> & {
+  bg?: keyof ColorTheme["colors"];
+  bgHover?: keyof ColorTheme["colors"];
+  bgPress?: keyof ColorTheme["colors"];
+  p?: keyof BaseTheme["space"];
+  px?: keyof BaseTheme["space"];
+  py?: keyof BaseTheme["space"];
+  pl?: keyof BaseTheme["space"];
+  pr?: keyof BaseTheme["space"];
+  pb?: keyof BaseTheme["space"];
+  pt?: keyof BaseTheme["space"];
+  m?: keyof BaseTheme["space"];
+  mx?: keyof BaseTheme["space"];
+  my?: keyof BaseTheme["space"];
+  ml?: keyof BaseTheme["space"];
+  mr?: keyof BaseTheme["space"];
+  mb?: keyof BaseTheme["space"];
+  mt?: keyof BaseTheme["space"];
+  borderRadius?: keyof BaseTheme["radius"];
+  display?: CSSProperties["display"];
+  justifyContent?: CSSProperties["justifyContent"];
+  justifyItems?: CSSProperties["justifyItems"];
+  justifySelf?: CSSProperties["justifySelf"];
+  alignContent?: CSSProperties["alignContent"];
+  alignItems?: CSSProperties["alignItems"];
+  alignSelf?: CSSProperties["alignSelf"];
+};
+
+type Props = TextProps &
+  StyledProps & {
+    icon?: ReactNode;
   };
 
-const StyledButton = styled.button<Props>`
+const StyledButton = styled.button<StyledProps>`
   background-color: ${({ theme, bg }) =>
     up([bg], theme.colors, theme.colors.interactiveBg)};
   color: ${({ theme }) => theme.colors.text};
@@ -93,6 +97,10 @@ const StyledButton = styled.button<Props>`
     color: ${({ theme }) => theme.colors.disabledText};
   }
 
+  & svg {
+    margin-right: ${({ theme }) => theme.space[2]};
+  }
+
   /* Animation */
   @media (prefers-reduced-motion: no-preference) {
     transition-property: box-shadow, color, background, border-color,
@@ -107,10 +115,12 @@ const Button = ({
   fontSize,
   fontWeight,
   lineHeight,
+  icon,
   ...props
 }: PropsWithChildren<Props>) => {
   return (
     <StyledButton {...props}>
+      {icon}
       <Text
         as="span"
         fontFamily={fontFamily}

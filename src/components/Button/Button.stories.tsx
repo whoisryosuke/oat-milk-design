@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
 import Button from "./Button";
+import { BiGame } from "react-icons/bi";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -55,6 +56,13 @@ export const Large: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+    children: "Button",
+  },
+};
+
+export const Icon: Story = {
+  args: {
+    icon: <BiGame size="20px" />,
     children: "Button",
   },
 };
