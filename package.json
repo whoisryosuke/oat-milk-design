@@ -1,18 +1,18 @@
 {
-  "name": "react-vite-library-boilerplate",
-  "version": "0.0.3",
+  "name": "@whoisryosuke/oat-milk-design",
+  "version": "0.0.5",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/react-vite-library-boilerplate.umd.js",
-  "module": "./dist/react-vite-library-boilerplate.es.js",
+  "main": "./dist/oat-milk-design.umd.js",
+  "module": "./dist/oat-milk-design.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/react-vite-library-boilerplate.es.js",
-      "require": "./dist/react-vite-library-boilerplate.umd.js"
+      "import": "./dist/oat-milk-design.es.js",
+      "require": "./dist/oat-milk-design.umd.js"
     }
   },
   "scripts": {
