@@ -1,3 +1,5 @@
+![Oat Milk Design logo](/docs/branding/White%20on%20Black%20BG.png)
+
 # Oat Milk Design
 
 Design system and UI components for prototyping.
@@ -23,7 +25,7 @@ Design system and UI components for prototyping.
 
 ### Preview the code
 
-1. Clone this project: `git clone git@github.com:whoisryosuke/react-vite-library-boilerplate.git`
+1. Clone this project: `git clone git@github.com:whoisryosuke/oat-milk-design.git`
 1. Install dependencies: `yarn`
 1. Start the dev server: `yarn storybook`
 
@@ -35,6 +37,14 @@ Write code in `src/` and export any components, functions, etc in the `index.ts`
 
 ### Release
 
+**Using GitHub:**
+
+1. Run the new version GitHub action.
+1. Create a new release with the new tag.
+
+**Or manually:**
+
 1. Bump version in `package.json`
 1. `yarn build`
 1. `npm publish`
+1. Create new release on GitHub and manually upload build.
