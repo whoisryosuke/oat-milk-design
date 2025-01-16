@@ -5,14 +5,14 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/oat-milk-design.umd.js",
-  "module": "./dist/oat-milk-design.es.js",
+  "main": "./dist/@whoisryosuke/oat-milk-design.umd.js",
+  "module": "./dist/@whoisryosuke/oat-milk-design.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/oat-milk-design.es.js",
-      "require": "./dist/oat-milk-design.umd.js"
+      "import": "./dist/@whoisryosuke/oat-milk-design.es.js",
+      "require": "./dist/@whoisryosuke/oat-milk-design.umd.js"
     }
   },
   "scripts": {
