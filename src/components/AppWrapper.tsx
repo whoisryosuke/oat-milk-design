@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import ThemeProvider from "./ThemeProvider/ThemeProvider";
 
 type Props = {};

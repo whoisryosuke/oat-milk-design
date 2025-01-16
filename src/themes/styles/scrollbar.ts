@@ -28,7 +28,7 @@ export const scrollbarStyles = () => css<ScrollbarProps>`
     background: rgba(255, 255, 255, 0.5);
   }
   &::-webkit-scrollbar-thumb:active {
-    background: ${({ theme }) => theme.colors.glassOverlay};
+    background: ${({ theme }) => theme.colors["blue-4"]};
   }
   /* Background styling */
   &::-webkit-scrollbar-track {

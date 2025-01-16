@@ -1,5 +1,5 @@
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { Theme, base, themes } from "../../themes";
+import { Theme, base } from "../../themes";
 import { useAppStore } from "../../store/app";
 import generateDarkTheme from "../../themes/colors/dark";
 

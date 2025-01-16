@@ -17,7 +17,7 @@ type Breakpoints = Record<keyof typeof BREAKPOINTS_RAW, string>;
 // Converts breakpoints to pixel values
 export const BREAKPOINTS: Breakpoints = Object.entries(BREAKPOINTS_RAW).reduce(
   (prev, curr) => {
-    prev[curr[0]] = `${curr[1]}px`;
+    prev[curr[0] as keyof Breakpoints] = `${curr[1]}px`;
     return prev;
   },
   {} as Breakpoints

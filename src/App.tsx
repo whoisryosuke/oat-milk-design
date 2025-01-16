@@ -1,4 +1,4 @@
-import Stack from "./components/Stack";
+import Stack from "./components/Stack/Stack";
 
 function App() {
   return <Stack />;

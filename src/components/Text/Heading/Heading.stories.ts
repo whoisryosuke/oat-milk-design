@@ -1,12 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
 
 import Heading from "./Heading";
-import generateDarkTheme from "../../../themes/colors/dark";
-import { base } from "../../../themes";
 import { TEXT_STYLES } from "../../../themes/tokens";
 
-const referenceTheme = generateDarkTheme("cyan");
 const typeKeys = Object.keys(TEXT_STYLES);
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

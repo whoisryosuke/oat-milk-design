@@ -3,7 +3,6 @@ import { ColorTheme } from "../../themes/colors/dark";
 import { BaseTheme } from "../../themes/base";
 import { up } from "../../utils/theme";
 import { CSSProperties } from "react";
-import { TEXT_STYLES } from "../../themes/tokens";
 
 export type TextProps = React.HTMLProps<HTMLParagraphElement> & {
   color?: keyof ColorTheme["colors"];

@@ -140,6 +140,6 @@ Button.defaultProps = {
   borderRadius: 4,
   fontSize: 2,
   lineHeight: 3,
-};
+} as Props;
 
 export default Button;
