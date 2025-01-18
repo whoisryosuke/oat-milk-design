@@ -34,12 +34,12 @@ export const BREAKPOINTS: Breakpoints = Object.entries(BREAKPOINTS_RAW).reduce(
 type MediaQueries = Record<keyof typeof BREAKPOINTS, string>;
 // Generates media queries formatted for Vanilla Extract
 export const MEDIA_QUERIES: MediaQueries = {
-  default: `@media (screen and (max-width: ${BREAKPOINTS.mobile}))`,
-  mobile: `@media (screen and (min-width: ${BREAKPOINTS.mobile}))`,
-  tablet: `@media (screen and (min-width: ${BREAKPOINTS.tablet}))`,
-  computer: `@media (screen and (min-width: ${BREAKPOINTS.computer}))`,
-  desktop: `@media (screen and (min-width: ${BREAKPOINTS.desktop}))`,
-  widescreen: `@media (screen and (min-width: ${BREAKPOINTS.widescreen}))`,
+  default: `@media (max-width: ${BREAKPOINTS.mobile})`,
+  mobile: `@media (min-width: ${BREAKPOINTS.mobile})`,
+  tablet: `@media (min-width: ${BREAKPOINTS.tablet})`,
+  computer: `@media (min-width: ${BREAKPOINTS.computer})`,
+  desktop: `@media (min-width: ${BREAKPOINTS.desktop})`,
+  widescreen: `@media (min-width: ${BREAKPOINTS.widescreen})`,
 };
 
 export const FONTS = {

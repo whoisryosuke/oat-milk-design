@@ -74,3 +74,12 @@ export const Flex: Story = {
     children: "Box",
   },
 };
+
+export const Responsive: Story = {
+  args: {
+    m: [3, 4, 5, 6, 7, 8],
+    p: [3, 4, 5, 6, 7, 8],
+    bg: "blue-4",
+    children: "Box",
+  },
+};

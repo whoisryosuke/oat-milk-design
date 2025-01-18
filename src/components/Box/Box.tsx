@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { ColorTheme } from "../../themes/colors/dark";
 import { BaseTheme } from "../../themes/base";
-import { up } from "../../utils/theme";
+import { mrup, rup, up } from "../../utils/theme";
 import { CSSProperties } from "react";
 
 type Props = React.HTMLProps<HTMLDivElement> & {
@@ -14,7 +14,11 @@ type Props = React.HTMLProps<HTMLDivElement> & {
   pr?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
   pb?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
   pt?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
-  m?: keyof BaseTheme["space"] | CSSProperties["margin"];
+  m?:
+    | Array<keyof BaseTheme["space"]>
+    | Array<CSSProperties["margin"]>
+    | keyof BaseTheme["space"]
+    | CSSProperties["margin"];
   mx?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
   my?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
   ml?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
@@ -42,23 +46,13 @@ const Box = styled.div<Props>`
   background-color: ${({ theme, bg }) => up([bg], theme.colors, "inherit")};
   color: ${({ theme, color }) => up([color], theme.colors, "inherit")};
 
-  padding-left: ${({ theme, p, px, pl }) => up([pl, px, p], theme.space, 0)};
-  padding-right: ${({ theme, p, px, pr }) => up([pr, px, p], theme.space, 0)};
-  padding-top: ${({ theme, p, py, pt }) => up([pt, py, p], theme.space, 0)};
-  padding-bottom: ${({ theme, p, py, pb }) => up([pb, py, p], theme.space, 0)};
-
-  margin-left: ${({ theme, m, mx, ml }) => up([ml, mx, m], theme.space, 0)};
-  margin-right: ${({ theme, m, mx, mr }) => up([mr, mx, m], theme.space, 0)};
-  margin-top: ${({ theme, m, my, mt }) => up([mt, my, m], theme.space, 0)};
-  margin-bottom: ${({ theme, m, my, mb }) => up([mb, my, m], theme.space, 0)};
-
   display: ${({ display }) => (display ? display : "block")};
 
   justify-content: ${({ justifyContent }) => justifyContent ?? "normal"};
   justify-items: ${({ justifyItems }) => justifyItems ?? "legacy"};
   justify-self: ${({ justifySelf }) => justifySelf ?? "auto"};
   align-content: ${({ alignContent }) => alignContent ?? "normal"};
-  align-items: ${({ alignItems }) => alignItems ?? "legacy"};
+  align-items: ${({ alignItems }) => alignItems ?? "inherit"};
   align-self: ${({ alignSelf }) => alignSelf ?? "auto"};
 
   border-style: ${({ borderStyle }) => borderStyle ?? "none"};
@@ -72,6 +66,30 @@ const Box = styled.div<Props>`
     up([borderBottomWidth, borderWidth], theme.space, "0px")};
   border-color: ${({ theme, borderColor }) =>
     up([borderColor], theme.colors, "transparent") ?? "none"};
+
+  ${({ theme, ...props }) =>
+    mrup(
+      [
+        "m",
+        "mx",
+        "my",
+        "ml",
+        "mr",
+        "mt",
+        "mb",
+        "p",
+        "px",
+        "py",
+        "pl",
+        "pr",
+        "pt",
+        "pb",
+      ],
+      theme,
+      props
+    )}
 `;
+// ${({ theme, m }) => rup("margin", m, theme.space)}
+// ${({ theme, p }) => rup("padding", p, theme.space)}
 
 export default Box;
