@@ -1,30 +1,26 @@
 import { styled } from "styled-components";
 import { ColorTheme } from "../../themes/colors/dark";
 import { BaseTheme } from "../../themes/base";
-import { mrup, rup, up } from "../../utils/theme";
+import { mrup, rup, up, UtilityPropResponsive } from "../../utils/theme";
 import { CSSProperties } from "react";
 
 type Props = React.HTMLProps<HTMLDivElement> & {
   bg?: keyof ColorTheme["colors"];
   color?: keyof ColorTheme["colors"];
-  p?: keyof BaseTheme["space"] | CSSProperties["padding"];
-  px?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
-  py?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
-  pl?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
-  pr?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
-  pb?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
-  pt?: keyof BaseTheme["space"] | CSSProperties["paddingLeft"];
-  m?:
-    | Array<keyof BaseTheme["space"]>
-    | Array<CSSProperties["margin"]>
-    | keyof BaseTheme["space"]
-    | CSSProperties["margin"];
-  mx?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
-  my?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
-  ml?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
-  mr?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
-  mb?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
-  mt?: keyof BaseTheme["space"] | CSSProperties["marginLeft"];
+  p?: UtilityPropResponsive<"space", "padding">;
+  px?: UtilityPropResponsive<"space", "paddingLeft">;
+  py?: UtilityPropResponsive<"space", "paddingLeft">;
+  pl?: UtilityPropResponsive<"space", "paddingLeft">;
+  pr?: UtilityPropResponsive<"space", "paddingLeft">;
+  pb?: UtilityPropResponsive<"space", "paddingLeft">;
+  pt?: UtilityPropResponsive<"space", "paddingLeft">;
+  m?: UtilityPropResponsive<"space", "margin">;
+  mx?: UtilityPropResponsive<"space", "marginLeft">;
+  my?: UtilityPropResponsive<"space", "marginLeft">;
+  ml?: UtilityPropResponsive<"space", "marginLeft">;
+  mr?: UtilityPropResponsive<"space", "marginLeft">;
+  mb?: UtilityPropResponsive<"space", "marginLeft">;
+  mt?: UtilityPropResponsive<"space", "marginLeft">;
   display?: CSSProperties["display"];
   justifyContent?: CSSProperties["justifyContent"];
   justifyItems?: CSSProperties["justifyItems"];

@@ -1,5 +1,7 @@
 import { DefaultTheme } from "styled-components";
 import { MEDIA_QUERIES } from "../themes/tokens";
+import { CSSProperties } from "react";
+import { BaseTheme } from "../themes/base";
 
 const PROP_TO_CSS = {
   m: ["margin"],
@@ -41,6 +43,15 @@ type PropsToTheme = typeof PROPS_TO_THEME;
 type PropsToThemeKeys = keyof PropsToTheme;
 
 export type ThemeTokenKey = string | number | undefined;
+
+export type UtilityPropResponsive<
+  ThemeKey extends keyof BaseTheme,
+  CSSProp extends keyof CSSProperties,
+> =
+  | Array<keyof BaseTheme[ThemeKey]>
+  | Array<CSSProperties[CSSProp]>
+  | keyof BaseTheme[ThemeKey]
+  | CSSProperties[CSSProp];
 
 // <Box width={["200px", "400px", "600px"]} />
 export const generateMultiUtilityMediaQueries = (
