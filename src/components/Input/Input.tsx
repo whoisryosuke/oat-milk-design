@@ -41,6 +41,7 @@ const InputContainer = styled.div<StyledContainer>`
 
   & svg {
     margin-right: ${({ theme }) => theme.space[3]};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   &:has(input:focus) {

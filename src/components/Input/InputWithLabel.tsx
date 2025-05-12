@@ -1,7 +1,7 @@
 import React from "react";
 import Input, { InputProps } from "./Input";
-import Text from "../Text/Text";
 import Stack from "../Stack/Stack";
+import InputLabel from "./InputLabel";
 
 type Props = InputProps & {
   label: string;
@@ -10,9 +10,7 @@ type Props = InputProps & {
 const InputWithLabel = ({ label, name, ...props }: Props) => {
   return (
     <Stack vertical>
-      <Text as="label" for={name} mb={2}>
-        {label}
-      </Text>
+      <InputLabel>{label}</InputLabel>
       <Input name={name} px={2} py={2} {...props} />
     </Stack>
   );
