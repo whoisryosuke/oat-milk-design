@@ -18,8 +18,9 @@ const meta = {
   argTypes: {},
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
-    labels: ["2D", "3D", "4D"],
-    currentLabel: "3D",
+    label: "Dimension",
+    buttons: ["2D", "3D", "4D"],
+    currentButton: "3D",
     setCurrentLabel: () => {},
   },
 } satisfies Meta<typeof ButtonGroup>;
@@ -29,8 +30,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Secondary: Story = {
   args: {
-    labels: ["2D", "3D", "4D"],
-    currentLabel: "3D",
+    buttons: ["2D", "3D", "4D"],
+    currentButton: "3D",
     setCurrentLabel: () => {},
   },
 };

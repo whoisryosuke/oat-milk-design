@@ -8,14 +8,19 @@ import React, {
 } from "react";
 import styled from "@emotion/styled";
 import Button from "../Button/Button";
+import Stack from "../Stack/Stack";
+import InputLabel from "../Input/InputLabel";
 
 const ButtonGroupContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
 
   & button {
+    flex: 1;
     border-radius: 0;
     border-right: 0;
+    justify-content: center;
   }
   & button:first-child {
     border-top-left-radius: ${({ theme }) => theme.radius[0]};
@@ -29,14 +34,16 @@ const ButtonGroupContainer = styled.div`
 `;
 
 type Props = {
-  labels: string[];
-  currentLabel: string;
+  label?: string;
+  buttons: string[];
+  currentButton: string;
   setCurrentLabel: Dispatch<string>;
 };
 
 const ButtonGroup = ({
-  labels,
-  currentLabel,
+  label,
+  buttons,
+  currentButton,
   setCurrentLabel,
   ...props
 }: Props) => {
@@ -45,21 +52,24 @@ const ButtonGroup = ({
   };
 
   return (
-    <ButtonGroupContainer {...props}>
-      {labels.map((label) => (
-        <Button
-          key={label}
-          name={label}
-          // @ts-ignore - Something must be up with Styled Components
-          onClick={handleClick}
-          data-pressed={currentLabel == label}
-          px={3}
-          py={2}
-        >
-          {label}
-        </Button>
-      ))}
-    </ButtonGroupContainer>
+    <Stack vertical>
+      {label && <InputLabel>{label}</InputLabel>}
+      <ButtonGroupContainer {...props}>
+        {buttons.map((label) => (
+          <Button
+            key={label}
+            name={label}
+            // @ts-ignore - Something must be up with Styled Components
+            onClick={handleClick}
+            data-pressed={currentButton == label}
+            px={3}
+            py={2}
+          >
+            {label}
+          </Button>
+        ))}
+      </ButtonGroupContainer>
+    </Stack>
   );
 };
 

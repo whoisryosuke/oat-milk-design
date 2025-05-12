@@ -8,6 +8,7 @@ import generateDarkTheme from "../../../themes/colors/dark";
 import Box from "../../Box/Box";
 import Stack from "../../Stack/Stack";
 import Slider from "../../Slider/Slider";
+import ButtonGroup from "../../ButtonGroup/ButtonGroup";
 
 const referenceTheme = generateDarkTheme("cyan");
 const colorKeys = Object.keys(referenceTheme.colors);
@@ -18,7 +19,7 @@ const meta = {
   title: "Composition/Input",
   parameters: {
     component: InputWithLabel,
-    subcomponents: { Stack },
+    subcomponents: { Stack, Slider, ButtonGroup },
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
@@ -37,6 +38,12 @@ export const Value: Story = {
       <InputWithLabel label="Label" placeholder="Type something..." />
       <InputWithLabel label="Label" placeholder="Type something..." />
       <Slider label="Label" />
+      <ButtonGroup
+        label="Dimension"
+        buttons={["2D", "3D", "4D"]}
+        currentButton="3D"
+        setCurrentLabel={() => {}}
+      />
     </Stack>
   ),
 };
