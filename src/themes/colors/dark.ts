@@ -31,9 +31,10 @@ export const generateDarkTheme = (color: ThemeColors) => ({
     borderDisabled: BASE_COLORS["gray-5"],
 
     focusBg: BASE_COLORS[`${color}-8`],
-    interactiveText: BASE_COLORS["gray-9"],
+    interactiveText: BASE_COLORS["gray-2"],
     interactiveBg: "transparent",
-    interactiveBgHovered: BASE_COLORS["gray-8"],
+    interactiveBgHovered: BASE_COLORS["gray-7"],
+    interactiveBgSelected: BASE_COLORS["gray-8"],
     interactiveBgPressed: BASE_COLORS[`${color}-8`],
     interactiveTextPressed: BASE_COLORS[`gray-2`],
 

@@ -9,6 +9,7 @@ import Box from "../../Box/Box";
 import Stack from "../../Stack/Stack";
 import Slider from "../../Slider/Slider";
 import ButtonGroup from "../../ButtonGroup/ButtonGroup";
+import Checkbox from "../../Checkbox/Checkbox";
 
 const referenceTheme = generateDarkTheme("cyan");
 const colorKeys = Object.keys(referenceTheme.colors);
@@ -44,6 +45,7 @@ export const Value: Story = {
         currentButton="3D"
         setCurrentLabel={() => {}}
       />
+      <Checkbox label="Auto Save" checked={true} setChecked={() => {}} />
     </Stack>
   ),
 };

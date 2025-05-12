@@ -27,7 +27,7 @@ const ButtonGroupContainer = styled.div`
     border-bottom-left-radius: ${({ theme }) => theme.radius[0]};
   }
   & button:last-child {
-    border-right: 1.5px solid;
+    border-right: 1.5px solid ${({ theme }) => theme.colors.border};
     border-top-right-radius: ${({ theme }) => theme.radius[0]};
     border-bottom-right-radius: ${({ theme }) => theme.radius[0]};
   }

@@ -22,6 +22,7 @@ type Props = React.HTMLProps<HTMLDivElement> & {
   mb?: UtilityPropResponsive<"space", "marginLeft">;
   mt?: UtilityPropResponsive<"space", "marginLeft">;
   display?: CSSProperties["display"];
+  position?: CSSProperties["position"];
   justifyContent?: CSSProperties["justifyContent"];
   justifyItems?: CSSProperties["justifyItems"];
   justifySelf?: CSSProperties["justifySelf"];
@@ -43,6 +44,7 @@ const Box = styled.div<Props>`
   color: ${({ theme, color }) => up([color], theme.colors, "inherit")};
 
   display: ${({ display }) => (display ? display : "block")};
+  position: ${({ position }) => (position ? position : "static")};
 
   justify-content: ${({ justifyContent }) => justifyContent ?? "normal"};
   justify-items: ${({ justifyItems }) => justifyItems ?? "legacy"};
