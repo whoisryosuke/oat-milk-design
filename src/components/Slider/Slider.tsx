@@ -21,7 +21,6 @@ const SliderBase = styled(AriaSlider)`
     "track track";
   grid-template-columns: 1fr auto;
   color: ${({ theme }) => theme.colors.text};
-  padding: ${({ theme }) => theme.space[4]};
 
   &[data-orientation="horizontal"] {
     flex-direction: column;

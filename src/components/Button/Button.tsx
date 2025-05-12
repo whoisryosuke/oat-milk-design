@@ -75,7 +75,8 @@ const StyledButton = styled.button<StyledProps>`
   }
 
   &[data-pressed="true"],
-  &:active {
+  &:active,
+  &[active="true] {
     font-weight: ${({ theme }) => theme.fontWeights.bold};
     background: ${({ theme, bgPress }) =>
       up([bgPress], theme.colors, theme.colors.interactiveBgPressed)};
