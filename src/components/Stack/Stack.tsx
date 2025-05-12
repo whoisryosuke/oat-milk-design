@@ -5,16 +5,18 @@ import Box from "../Box/Box";
 type StackContainerProps = {
   flexDirection: CSSProperties["flexDirection"];
   flexWrap: CSSProperties["flexWrap"];
+  gap?: CSSProperties["gap"];
 };
 
-const StackContainer = styled("div")<StackContainerProps>`
+const StackContainer = styled(Box)<StackContainerProps>`
   display: flex;
   flex-direction: ${({ flexDirection }) => flexDirection};
   flex-wrap: ${({ flexWrap }) => flexWrap};
+  gap: ${({ gap }) => gap};
 `;
 
 type Props = {
-  gap?: React.CSSProperties["margin"];
+  gap?: CSSProperties["gap"];
   vertical?: boolean;
   // Flex-wrap, wraps content to next line
   wrap?: boolean;
@@ -25,42 +27,13 @@ type Props = {
 };
 
 const Stack = ({
-  gap = "8px",
   vertical = false,
   wrap = false,
-  wrapper = false,
   // responsive = true,
   style,
   children,
   ...props
 }: PropsWithChildren<Props>) => {
-  // The CSS for gap between elements
-  const gapStyle = {
-    mb: vertical || wrap ? gap : 0,
-    mr: !vertical ? gap : 0,
-  };
-  // If it's the last child, we still apply some styles depending on the case
-  // If we wrap, there's always a marginBottom needed or it'll offset flex
-  const defaultGap = {
-    // mb: { mobile: responsive ? gap : 0, tablet: wrap ? gap : 0 },
-    mb: wrap ? gap : 0,
-  };
-
-  // Loop through children and apply gap (unless it's the last child)
-  const childArray = React.Children.toArray(children);
-  const spacedChildren = React.Children.map(childArray, (child, index) => {
-    if (React.isValidElement(child)) {
-      const showGapStyle =
-        children && index < childArray.length - 1 ? gapStyle : defaultGap;
-
-      if (wrapper) return <Box {...showGapStyle}>{child}</Box>;
-      return React.cloneElement(child, {
-        ...showGapStyle,
-      });
-    }
-    return child;
-  });
-
   const orientation = vertical ? "column" : "row";
 
   return (
@@ -70,7 +43,7 @@ const Stack = ({
       style={style}
       {...props}
     >
-      {spacedChildren}
+      {children}
     </StackContainer>
   );
 };

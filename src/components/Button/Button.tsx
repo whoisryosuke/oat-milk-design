@@ -41,7 +41,7 @@ type Props = TextProps &
 const StyledButton = styled.button<StyledProps>`
   background-color: ${({ theme, bg }) =>
     up([bg], theme.colors, theme.colors.interactiveBg)};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.interactiveText};
   border-radius: ${({ theme, borderRadius }) =>
     borderRadius ? theme.radius[borderRadius] : 0};
 
@@ -66,7 +66,6 @@ const StyledButton = styled.button<StyledProps>`
 
   border: 1.5px solid
     ${({ theme, bgHover }) => up([bgHover], theme.colors, theme.colors.border)};
-  text-shadow: ${({ theme }) => theme.shadows.text};
 
   &:hover {
     border-color: ${({ theme, bgPress }) =>
@@ -81,13 +80,14 @@ const StyledButton = styled.button<StyledProps>`
     background: ${({ theme, bgPress }) =>
       up([bgPress], theme.colors, theme.colors.interactiveBgPressed)};
     border-color: ${({ theme, bgPress }) =>
-      up([bgPress], theme.colors, theme.colors.borderHovered)};
+      up([bgPress], theme.colors, theme.colors.borderPressed)};
+    color: ${({ theme }) => theme.colors.interactiveTextPressed};
   }
 
   &:focus {
     outline: 2px solid
       ${({ theme, bgPress }) =>
-        up([bgPress], theme.colors, theme.colors.interactiveBgPressed)};
+        up([bgPress], theme.colors, theme.colors.focusBg)};
     outline-offset: -1px;
   }
 
@@ -137,7 +137,7 @@ const Button = ({
 Button.defaultProps = {
   px: 6,
   py: 3,
-  borderRadius: 4,
+  borderRadius: 0,
   fontSize: 2,
   lineHeight: 3,
 } as Props;

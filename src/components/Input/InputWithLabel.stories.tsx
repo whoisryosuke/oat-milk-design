@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 
 import generateDarkTheme from "../../themes/colors/dark";
 import { base } from "../../themes";
-import Input from "./Input";
+import InputWithLabel from "./InputWithLabel";
 import { THEME_COLORS } from "../../themes/colors/base";
 import { BiGame } from "react-icons/bi";
 
@@ -13,8 +13,8 @@ const spaceKeys = Object.keys(base.space);
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/Input/Input",
-  component: Input,
+  title: "Example/Input/InputWithLabel",
+  component: InputWithLabel,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -23,24 +23,14 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof InputWithLabel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Placeholder: Story = {
-  args: {
-    placeholder: "your.email@company.com",
-  },
-};
 export const Value: Story = {
   args: {
-    value: "Test value",
-  },
-};
-export const Icon: Story = {
-  args: {
-    icon: <BiGame size="20px" />,
-    value: "Test value",
+    label: "Test value",
+    placeholder: "Test input",
   },
 };

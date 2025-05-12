@@ -17,7 +17,7 @@ const Text = styled.p<TextProps>`
   color: ${({ theme, color }) => up([color], theme.colors, "inherit")};
 
   font-family: ${({ theme, fontFamily }) =>
-    up([fontFamily], theme.fonts, "sans-serif")};
+    up([fontFamily], theme.fonts, theme.fonts.body)};
   font-size: ${({ theme, fontSize }) =>
     up([fontSize], theme.fontSizes, "1rem")};
   font-weight: ${({ theme, fontWeight }) =>

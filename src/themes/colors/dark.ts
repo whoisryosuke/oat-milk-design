@@ -26,12 +26,16 @@ export const generateDarkTheme = (color: ThemeColors) => ({
     icon: BASE_COLORS["gray-5"],
 
     border: BASE_COLORS["gray-6"],
-    borderHovered: BASE_COLORS[`${color}-7`],
+    borderHovered: BASE_COLORS[`gray-7`],
+    borderPressed: BASE_COLORS[`${color}-7`],
     borderDisabled: BASE_COLORS["gray-5"],
 
-    interactiveBg: BASE_COLORS[`gray-8`],
-    interactiveBgHovered: BASE_COLORS[`${color}-5`],
-    interactiveBgPressed: BASE_COLORS[`${color}-6`],
+    focusBg: BASE_COLORS[`${color}-5`],
+    interactiveText: BASE_COLORS["gray-9"],
+    interactiveBg: "transparent",
+    interactiveBgHovered: "rgba(0,0,0,0.1)",
+    interactiveBgPressed: BASE_COLORS[`${color}-8`],
+    interactiveTextPressed: BASE_COLORS[`gray-2`],
 
     inputBg: BASE_COLORS["gray-9"],
 
