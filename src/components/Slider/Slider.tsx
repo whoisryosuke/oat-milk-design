@@ -142,7 +142,7 @@ type Props = typeof AriaSlider & {
 const Slider = ({ label, showOutput, ...props }: Props) => {
   return (
     <SliderBase {...props}>
-      {label && <Label as={InputLabel}>{label}</Label>}
+      {label && <InputLabel as={Label}>{label}</InputLabel>}
       {showOutput && <SliderOutput />}
       <SliderTrack>
         {({ state }) => (
