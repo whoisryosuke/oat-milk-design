@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "@emotion/styled";
 import { BaseTheme } from "../../themes/base";
 import { CSSProperties, PropsWithChildren, ReactNode } from "react";
 import { up } from "../../utils/theme";
@@ -31,6 +31,7 @@ type StyledProps = React.HTMLProps<HTMLButtonElement> & {
   alignContent?: CSSProperties["alignContent"];
   alignItems?: CSSProperties["alignItems"];
   alignSelf?: CSSProperties["alignSelf"];
+  active: boolean;
 };
 
 type Props = TextProps &
@@ -76,7 +77,7 @@ const StyledButton = styled.button<StyledProps>`
 
   &[data-pressed="true"],
   &:active,
-  &[active="true] {
+  &[active="true"] {
     font-weight: ${({ theme }) => theme.fontWeights.bold};
     background: ${({ theme, bgPress }) =>
       up([bgPress], theme.colors, theme.colors.interactiveBgPressed)};

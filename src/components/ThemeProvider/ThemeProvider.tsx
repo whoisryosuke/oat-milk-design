@@ -1,4 +1,4 @@
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import { ThemeProvider as StyledThemeProvider } from "@emotion/react";
 import { Theme, base } from "../../themes";
 import { useAppStore } from "../../store/app";
 import generateDarkTheme from "../../themes/colors/dark";

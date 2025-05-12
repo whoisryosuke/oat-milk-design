@@ -6,7 +6,7 @@ import {
   SliderThumb as AriaSliderThumb,
   SliderTrack as AriaSliderTrack,
 } from "react-aria-components";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import InputLabel from "../Input/InputLabel";
 
 const SLIDER_TRACK_HEIGHT = 14;

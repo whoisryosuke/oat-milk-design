@@ -1,8 +1,8 @@
 import { PropsWithChildren } from "react";
-import { ThemeProvider } from "styled-components";
 import { ThemeColors } from "../../themes/colors/base";
 import generateDarkTheme from "../../themes/colors/dark";
 import base from "../../themes/base";
+import { ThemeProvider } from "@emotion/react";
 
 type Props = {
   color: ThemeColors;

@@ -1,5 +1,5 @@
 import React, { CSSProperties, PropsWithChildren } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import Box from "../Box/Box";
 
 type StackContainerProps = {

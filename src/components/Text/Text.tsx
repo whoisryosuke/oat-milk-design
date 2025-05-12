@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "@emotion/styled";
 import { ColorTheme } from "../../themes/colors/dark";
 import { BaseTheme } from "../../themes/base";
 import { up } from "../../utils/theme";
