@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { ChangeEvent, Dispatch, MouseEvent } from "react";
+import { ChangeEvent, Dispatch } from "react";
 import Box from "../../../src/components/Box/Box";
 import { up } from "../../utils/theme";
 import { BaseTheme } from "../../themes/base";

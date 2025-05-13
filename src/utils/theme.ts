@@ -42,7 +42,7 @@ const PROPS_TO_THEME = {
 type PropsToTheme = typeof PROPS_TO_THEME;
 type PropsToThemeKeys = keyof PropsToTheme;
 
-export type ThemeTokenKey = string | number | undefined;
+export type ThemeTokenKey = string | number | null | undefined;
 
 export type UtilityPropResponsive<
   ThemeKey extends keyof BaseTheme,
@@ -57,8 +57,8 @@ export type UtilityPropResponsive<
 export const generateMultiUtilityMediaQueries = (
   utilityPropNames: string[],
   themeProp: DefaultTheme,
-  // componentProps: Record<string, ThemeTokenKey | object>
-  componentProps: unknown
+  componentProps: Record<string, ThemeTokenKey | object>
+  // componentProps: unknown
 ) => {
   const styles = [
     [] as string[], // default

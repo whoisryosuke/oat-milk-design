@@ -4,7 +4,7 @@ import { BaseTheme } from "../../themes/base";
 import { up } from "../../utils/theme";
 import { CSSProperties } from "react";
 
-export type TextProps = React.HTMLProps<HTMLParagraphElement> & {
+export type TextProps = {
   color?: keyof ColorTheme["colors"];
   fontFamily?: keyof BaseTheme["fonts"] | CSSProperties["fontFamily"];
   fontSize?: keyof BaseTheme["fontSizes"] | CSSProperties["fontSize"];
@@ -13,7 +13,12 @@ export type TextProps = React.HTMLProps<HTMLParagraphElement> & {
   display?: CSSProperties["display"];
 };
 
-const Text = styled.p<TextProps>`
+type TextComponentProps = React.HTMLProps<
+  HTMLParagraphElement | HTMLLabelElement
+> &
+  TextProps;
+
+const Text = styled.p<TextComponentProps>`
   color: ${({ theme, color }) => up([color], theme.colors, "inherit")};
 
   font-family: ${({ theme, fontFamily }) =>

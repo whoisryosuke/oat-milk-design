@@ -8,9 +8,10 @@ type Props = TextProps & {
 };
 
 const Heading = ({ type = "h1", ...props }: PropsWithChildren<Props>) => {
+  const element = type == "billboard" ? "h1" : type;
   return (
     <Text
-      as={type}
+      as={element}
       fontSize={TEXT_STYLES[type]}
       lineHeight="1.5rem"
       {...props}

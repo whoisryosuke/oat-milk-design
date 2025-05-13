@@ -1,10 +1,14 @@
 import styled from "@emotion/styled";
 import { ColorTheme } from "../../themes/colors/dark";
-import { BaseTheme } from "../../themes/base";
-import { mrup, rup, up, UtilityPropResponsive } from "../../utils/theme";
+import {
+  mrup,
+  ThemeTokenKey,
+  up,
+  UtilityPropResponsive,
+} from "../../utils/theme";
 import { CSSProperties } from "react";
 
-export type BoxProps = React.HTMLProps<HTMLDivElement> & {
+export type BoxProps = React.HTMLAttributes<HTMLDivElement> & {
   bg?: keyof ColorTheme["colors"];
   color?: keyof ColorTheme["colors"];
   p?: UtilityPropResponsive<"space", "padding">;
@@ -88,7 +92,7 @@ const Box = styled.div<BoxProps>`
         "pb",
       ],
       theme,
-      props
+      props as Record<string, ThemeTokenKey | object>
     )}
 `;
 // ${({ theme, m }) => rup("margin", m, theme.space)}

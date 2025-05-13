@@ -8,8 +8,8 @@ function App() {
       <div>
         <Heading type="h1">App</Heading>
         <ButtonGroup
-          labels={["2D", "3D", "4D"]}
-          currentLabel="3D"
+          buttons={["2D", "3D", "4D"]}
+          currentButton="3D"
           setCurrentLabel={() => {}}
         />
       </div>

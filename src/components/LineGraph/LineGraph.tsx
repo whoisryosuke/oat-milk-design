@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import Box from "../Box/Box";
 import { BASE_COLORS, ThemeColors } from "../../themes/colors/base";
 import map from "../../utils/map";

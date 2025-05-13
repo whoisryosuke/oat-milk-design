@@ -1,12 +1,10 @@
-import React from "react";
+import { PropsWithChildren } from "react";
 import Text, { TextProps } from "../Text/Text";
 
 type Props = TextProps;
 
-const InputLabel = (props: Props) => {
-  return (
-    <Text as="label" for={name} fontSize={1} mb={2} color="text" {...props} />
-  );
+const InputLabel = (props: PropsWithChildren<Props>) => {
+  return <Text as="label" fontSize={1} color="text" {...props} />;
 };
 
 export default InputLabel;

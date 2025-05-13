@@ -92,6 +92,8 @@ const Input = ({
       pb={pb}
     >
       {icon}
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
       <StyledInput icon={hasIcon} {...props}></StyledInput>
     </InputContainer>
   );

@@ -1,4 +1,4 @@
-import React, { CSSProperties, PropsWithChildren } from "react";
+import { CSSProperties, PropsWithChildren } from "react";
 import styled from "@emotion/styled";
 import Box, { BoxProps } from "../Box/Box";
 

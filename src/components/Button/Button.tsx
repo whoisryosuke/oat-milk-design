@@ -5,7 +5,7 @@ import { up } from "../../utils/theme";
 import Text, { TextProps } from "../Text/Text";
 import { ColorTheme } from "../../themes/colors/dark";
 
-type StyledProps = React.HTMLProps<HTMLButtonElement> & {
+type StyledProps = {
   bg?: keyof ColorTheme["colors"];
   bgHover?: keyof ColorTheme["colors"];
   bgPress?: keyof ColorTheme["colors"];
@@ -34,8 +34,10 @@ type StyledProps = React.HTMLProps<HTMLButtonElement> & {
   active: boolean;
 };
 
-type Props = TextProps &
+type Props = React.HTMLAttributes<HTMLButtonElement> &
+  TextProps &
   StyledProps & {
+    name?: string;
     icon?: ReactNode;
   };
 

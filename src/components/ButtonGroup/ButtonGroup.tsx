@@ -1,11 +1,4 @@
-import React, {
-  ChangeEvent,
-  Dispatch,
-  MouseEvent,
-  MouseEventHandler,
-  SetStateAction,
-  useState,
-} from "react";
+import { Dispatch, MouseEvent } from "react";
 import styled from "@emotion/styled";
 import Button from "../Button/Button";
 import Stack from "../Stack/Stack";
@@ -59,7 +52,8 @@ const ButtonGroup = ({
           <Button
             key={label}
             name={label}
-            // @ts-ignore - Something must be up with Styled Components
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore - Doesn't matter
             onClick={handleClick}
             data-pressed={currentButton == label}
             px={3}

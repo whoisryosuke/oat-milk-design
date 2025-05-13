@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Slider as AriaSlider,
   Label as AriaLabel,
@@ -142,6 +141,8 @@ type Props = typeof AriaSlider & {
 const Slider = ({ label, showOutput, ...props }: Props) => {
   return (
     <SliderBase {...props}>
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
+      {/* @ts-ignore */}
       {label && <InputLabel as={Label}>{label}</InputLabel>}
       {showOutput && <SliderOutput />}
       <SliderTrack>

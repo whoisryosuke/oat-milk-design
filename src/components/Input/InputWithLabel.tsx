@@ -1,4 +1,3 @@
-import React from "react";
 import Input, { InputProps } from "./Input";
 import Stack from "../Stack/Stack";
 import InputLabel from "./InputLabel";

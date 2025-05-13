@@ -1,8 +1,6 @@
-import React, { ChangeEvent, Dispatch, MouseEvent } from "react";
-import Box from "../Box/Box";
+import { Dispatch, MouseEvent } from "react";
 import InputLabel from "../Input/InputLabel";
 import styled from "@emotion/styled";
-import Stack from "../Stack/Stack";
 import { BiCheck } from "react-icons/bi";
 
 const CheckboxContainer = styled.div`
