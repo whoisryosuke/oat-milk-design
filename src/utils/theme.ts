@@ -1,7 +1,9 @@
-import { DefaultTheme } from "styled-components";
 import { MEDIA_QUERIES } from "../themes/tokens";
 import { CSSProperties } from "react";
 import { BaseTheme } from "../themes/base";
+import { Theme } from "@emotion/react";
+
+type ThemeObject = Record<string | number, string | number>;
 
 const PROP_TO_CSS = {
   m: ["margin"],
@@ -56,7 +58,7 @@ export type UtilityPropResponsive<
 // <Box width={["200px", "400px", "600px"]} />
 export const generateMultiUtilityMediaQueries = (
   utilityPropNames: string[],
-  themeProp: DefaultTheme,
+  themeProp: Theme,
   componentProps: Record<string, ThemeTokenKey | object>
   // componentProps: unknown
 ) => {
@@ -79,7 +81,7 @@ export const generateMultiUtilityMediaQueries = (
       )
     );
     if (!themeKey) return;
-    const themeRef = themeProp[themeKey[0]];
+    const themeRef = themeProp[themeKey[0] as keyof Theme];
     const componentProp = componentProps[utilityPropName];
     // Get the actual CSS property we'll target
     const cssPropName = PROP_TO_CSS[utilityPropName as PropToCSSKeys];
@@ -93,7 +95,9 @@ export const generateMultiUtilityMediaQueries = (
     // We basically use the `up()` here to access the theme prop quickly
     keys.map((key, index) => {
       if (!key) return;
-      styles[index].push(`${cssPropName}: ${up([key], themeRef, 0)};`);
+      styles[index].push(
+        `${cssPropName}: ${up([key], themeRef as ThemeObject, 0)};`
+      );
     });
   });
 
@@ -116,7 +120,7 @@ export const mrup = generateMultiUtilityMediaQueries;
 export const generateUtilityMediaQueries = (
   cssPropName: string,
   initialKeys: ThemeTokenKey[] | ThemeTokenKey,
-  themeProp: Record<string | number, string | number>
+  themeProp: ThemeObject
 ) => {
   const keys = !Array.isArray(initialKeys) ? [initialKeys] : initialKeys;
 
@@ -144,7 +148,7 @@ export const rup = generateUtilityMediaQueries;
 // This gives priority to whichever comes first in array (e.g. `[pl,px,p]` will do `pl` first)
 export const generateUtilityProps = (
   keys: (string | number | undefined)[],
-  themeProp: Record<string | number, string | number>,
+  themeProp: ThemeObject,
   fallback: string | number
 ) => {
   const actualKey = keys.find((key) => key && key !== "");
