@@ -10,7 +10,7 @@ function App() {
         <ButtonGroup
           buttons={["2D", "3D", "4D"]}
           currentButton="3D"
-          setCurrentLabel={() => {}}
+          setCurrentButton={() => {}}
         />
       </div>
     </ThemeProvider>

@@ -30,18 +30,18 @@ type Props = {
   label?: string;
   buttons: string[];
   currentButton: string;
-  setCurrentLabel: Dispatch<string>;
+  setCurrentButton: Dispatch<string>;
 };
 
 const ButtonGroup = ({
   label,
   buttons,
   currentButton,
-  setCurrentLabel,
+  setCurrentButton,
   ...props
 }: Props) => {
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    setCurrentLabel(e.currentTarget.name);
+    setCurrentButton(e.currentTarget.name);
   };
 
   return (

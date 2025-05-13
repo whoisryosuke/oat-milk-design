@@ -22,7 +22,7 @@ const Tabs = ({ tabs, ...props }: Props) => {
       <ButtonGroup
         buttons={tabs.map((tab) => tab.name)}
         currentButton={currentTab}
-        setCurrentLabel={setCurrentTab}
+        setCurrentButton={setCurrentTab}
       />
       {selectedTab?.content && <Box>{selectedTab?.content}</Box>}
     </Stack>

@@ -53,7 +53,7 @@ export const Value: Story = {
         label="Dimension"
         buttons={["2D", "3D", "4D"]}
         currentButton="3D"
-        setCurrentLabel={() => {}}
+        setCurrentButton={() => {}}
       />
       <Checkbox label="Auto Save" checked={true} setChecked={() => {}} />
       <Stack vertical>

@@ -21,7 +21,7 @@ const meta = {
     label: "Dimension",
     buttons: ["2D", "3D", "4D"],
     currentButton: "3D",
-    setCurrentLabel: () => {},
+    setCurrentButton: () => {},
   },
 } satisfies Meta<typeof ButtonGroup>;
 
@@ -32,6 +32,6 @@ export const Secondary: Story = {
   args: {
     buttons: ["2D", "3D", "4D"],
     currentButton: "3D",
-    setCurrentLabel: () => {},
+    setCurrentButton: () => {},
   },
 };
