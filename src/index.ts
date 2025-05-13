@@ -16,6 +16,7 @@ import Slider from "./components/Slider/Slider";
 import Select from "./components/Select/Select";
 import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
 import InputLabel from "./components/Input/InputLabel";
+import ThemeProvider from "./components/ThemeProvider/ThemeProvider";
 
 export {
   AppWrapper,
@@ -34,6 +35,7 @@ export {
   Slider,
   Stack,
   Tabs,
+  ThemeProvider,
   Text,
   useAppStore,
 };
