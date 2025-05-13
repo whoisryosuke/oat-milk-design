@@ -10,6 +10,9 @@ import Stack from "../../Stack/Stack";
 import Slider from "../../Slider/Slider";
 import ButtonGroup from "../../ButtonGroup/ButtonGroup";
 import Checkbox from "../../Checkbox/Checkbox";
+import { Value as LineGraphProps } from "../../LineGraph/LineGraph.stories";
+import LineGraph from "../../LineGraph/LineGraph";
+import InputLabel from "../../Input/InputLabel";
 
 const referenceTheme = generateDarkTheme("cyan");
 const colorKeys = Object.keys(referenceTheme.colors);
@@ -20,7 +23,14 @@ const meta = {
   title: "Composition/Input",
   parameters: {
     component: InputWithLabel,
-    subcomponents: { Stack, Slider, ButtonGroup },
+    subcomponents: {
+      Stack,
+      Slider,
+      ButtonGroup,
+      Checkbox,
+      LineGraph,
+      InputLabel,
+    },
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
@@ -46,6 +56,10 @@ export const Value: Story = {
         setCurrentLabel={() => {}}
       />
       <Checkbox label="Auto Save" checked={true} setChecked={() => {}} />
+      <Stack vertical>
+        <InputLabel>Waveform</InputLabel>
+        <LineGraph {...LineGraphProps.args} width="100%" />
+      </Stack>
     </Stack>
   ),
 };
