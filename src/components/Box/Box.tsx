@@ -4,7 +4,7 @@ import { BaseTheme } from "../../themes/base";
 import { mrup, rup, up, UtilityPropResponsive } from "../../utils/theme";
 import { CSSProperties } from "react";
 
-type Props = React.HTMLProps<HTMLDivElement> & {
+export type BoxProps = React.HTMLProps<HTMLDivElement> & {
   bg?: keyof ColorTheme["colors"];
   color?: keyof ColorTheme["colors"];
   p?: UtilityPropResponsive<"space", "padding">;
@@ -21,6 +21,8 @@ type Props = React.HTMLProps<HTMLDivElement> & {
   mr?: UtilityPropResponsive<"space", "marginLeft">;
   mb?: UtilityPropResponsive<"space", "marginLeft">;
   mt?: UtilityPropResponsive<"space", "marginLeft">;
+  width?: CSSProperties["width"];
+  height?: CSSProperties["height"];
   display?: CSSProperties["display"];
   position?: CSSProperties["position"];
   justifyContent?: CSSProperties["justifyContent"];
@@ -39,10 +41,12 @@ type Props = React.HTMLProps<HTMLDivElement> & {
   borderColor?: keyof ColorTheme["colors"] | CSSProperties["borderColor"];
 };
 
-const Box = styled.div<Props>`
+const Box = styled.div<BoxProps>`
   background-color: ${({ theme, bg }) => up([bg], theme.colors, "inherit")};
   color: ${({ theme, color }) => up([color], theme.colors, "inherit")};
 
+  width: ${({ width }) => (width ? width : "auto")};
+  height: ${({ height }) => (height ? height : "auto")};
   display: ${({ display }) => (display ? display : "block")};
   position: ${({ position }) => (position ? position : "static")};
 

@@ -1,6 +1,6 @@
 import React, { CSSProperties, PropsWithChildren } from "react";
 import styled from "@emotion/styled";
-import Box from "../Box/Box";
+import Box, { BoxProps } from "../Box/Box";
 
 type StackContainerProps = {
   flexDirection: CSSProperties["flexDirection"];
@@ -15,7 +15,7 @@ const StackContainer = styled(Box)<StackContainerProps>`
   gap: ${({ gap }) => gap};
 `;
 
-type Props = {
+export type StackProps = BoxProps & {
   gap?: CSSProperties["gap"];
   vertical?: boolean;
   // Flex-wrap, wraps content to next line
@@ -33,7 +33,7 @@ const Stack = ({
   style,
   children,
   ...props
-}: PropsWithChildren<Props>) => {
+}: PropsWithChildren<StackProps>) => {
   const orientation = vertical ? "column" : "row";
 
   return (
