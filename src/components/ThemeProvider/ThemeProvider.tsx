@@ -2,6 +2,7 @@ import { ThemeProvider as StyledThemeProvider } from "@emotion/react";
 import { Theme, base } from "../../themes";
 import { useAppStore } from "../../store/app";
 import generateDarkTheme from "../../themes/colors/dark";
+import generateLightTheme from "../../themes/colors/light";
 
 /* eslint-disable-next-line */
 export interface ThemeProviderProps {
@@ -16,7 +17,7 @@ export function ThemeProvider({
   // @TODO: Put light mode back once colors are consolidated
   const themeStyles =
     theme === "light"
-      ? generateDarkTheme(colorMode)
+      ? generateLightTheme(colorMode)
       : generateDarkTheme(colorMode);
   const baseTheme = {
     ...base,

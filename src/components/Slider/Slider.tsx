@@ -8,6 +8,8 @@ import {
 import styled from "@emotion/styled";
 import InputLabel from "../Input/InputLabel";
 
+const SLIDER_THUMB_WIDTH_CLOSED = 6;
+const SLIDER_THUMB_WIDTH_OPEN = 20;
 const SLIDER_TRACK_HEIGHT = 14;
 const SLIDER_PROGRESS_PADDING = 3;
 const SLIDER_PROGRESS_HEIGHT =
@@ -50,18 +52,13 @@ const SliderOutput = styled(AriaSliderOutput)`
 `;
 
 const SliderThumb = styled(AriaSliderThumb)`
-  width: 23px;
+  width: ${SLIDER_THUMB_WIDTH_CLOSED}px;
   height: 25px;
   forced-color-adjust: none;
   position: absolute;
   top: 50%;
 
-  background: ${({ theme }) => theme.colors.inputBg};
-  border-radius: ${({ theme }) => theme.space[3]};
-
-  &[data-dragging] {
-    background: ${({ theme }) => theme.colors.interactiveBgPressed};
-  }
+  background: transparent;
 
   &[data-orientation="horizontal"] {
     top: 50%;
@@ -73,19 +70,34 @@ const SliderThumb = styled(AriaSliderThumb)`
   &:after {
     content: "";
     position: absolute;
-    top: 12px;
-    left: 5px;
-    width: 12px;
-    height: 2px;
-    border-radius: 2px;
+    top: 0;
+    left: 0;
+    width: ${SLIDER_THUMB_WIDTH_CLOSED}px;
+    height: 25px;
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.radius[0]};
     background: ${({ theme }) => theme.colors.inputBg};
+
+    transition:
+      width 210ms ease-out,
+      transform 210ms ease-out;
   }
   &:hover:after {
     background: ${({ theme }) => theme.colors.interactiveBgHovered};
+
+    width: ${SLIDER_THUMB_WIDTH_OPEN}px;
+    transform: translateX(
+      -${(SLIDER_THUMB_WIDTH_CLOSED - SLIDER_THUMB_WIDTH_OPEN) / 2}px
+    );
   }
   &[data-dragging]:after {
     background: ${({ theme }) => theme.colors.interactiveBgPressed};
   }
+  &:hover {
+    width: 23px;
+  }
+
+  transition: width 210ms ease-out;
 `;
 
 const SliderProgress = styled("div")`
@@ -94,7 +106,7 @@ const SliderProgress = styled("div")`
   margin: ${SLIDER_PROGRESS_PADDING}px;
 
   background: ${({ theme }) => theme.gradients.primary};
-  border-radius: ${({ theme }) => theme.space[3]};
+  border-radius: ${({ theme }) => theme.radius[1]};
 `;
 
 const SliderTrack = styled(AriaSliderTrack)`
@@ -108,8 +120,8 @@ const SliderTrack = styled(AriaSliderTrack)`
     background: var(--border-color);
 
     background: ${({ theme }) => theme.colors.inputBg};
-    box-shadow: ${({ theme }) => theme.shadows.default};
-    border-radius: ${({ theme }) => theme.space[4]};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: ${({ theme }) => theme.radius[0]};
   }
 
   &[data-orientation="horizontal"] {

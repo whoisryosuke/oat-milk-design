@@ -12,8 +12,8 @@ const Heading = ({ type = "h1", ...props }: PropsWithChildren<Props>) => {
   return (
     <Text
       as={element}
-      fontSize={TEXT_STYLES[type]}
-      lineHeight="1.5rem"
+      fontSize={`${TEXT_STYLES[type]}px`}
+      lineHeight={`${TEXT_STYLES[type] * 1.5}px`}
       {...props}
     />
   );

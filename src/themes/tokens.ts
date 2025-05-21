@@ -53,29 +53,41 @@ export const FONT_WEIGHTS = {
   bold: 700,
 };
 
+export const FONT_SIZES = {
+  0: 12,
+  1: 14,
+  2: 16,
+  3: 20,
+  4: 24,
+  5: 32,
+  6: 48,
+  7: 64,
+  8: 96,
+};
+
 export const FONT_SIZE_PROPERTIES = {
-  0: "12px",
-  1: "14px",
-  2: "16px",
-  3: "20px",
-  4: "24px",
-  5: "32px",
-  6: "48px",
-  7: "64px",
-  8: "96px",
+  0: `${FONT_SIZES[0]}px`,
+  1: `${FONT_SIZES[1]}px`,
+  2: `${FONT_SIZES[2]}px`,
+  3: `${FONT_SIZES[3]}px`,
+  4: `${FONT_SIZES[4]}px`,
+  5: `${FONT_SIZES[5]}px`,
+  6: `${FONT_SIZES[6]}px`,
+  7: `${FONT_SIZES[7]}px`,
+  8: `${FONT_SIZES[8]}px`,
 };
 
 export const TEXT_STYLES = {
-  billboard: FONT_SIZE_PROPERTIES["8"],
-  title: FONT_SIZE_PROPERTIES["7"],
-  h1: FONT_SIZE_PROPERTIES["6"],
-  h2: FONT_SIZE_PROPERTIES["5"],
-  h3: FONT_SIZE_PROPERTIES["4"],
-  h4: FONT_SIZE_PROPERTIES["3"],
-  h5: FONT_SIZE_PROPERTIES["2"],
-  h6: FONT_SIZE_PROPERTIES["1"],
-  p: FONT_SIZE_PROPERTIES["1"],
-  label: FONT_SIZE_PROPERTIES["0"],
+  billboard: FONT_SIZES["8"],
+  title: FONT_SIZES["7"],
+  h1: FONT_SIZES["6"],
+  h2: FONT_SIZES["5"],
+  h3: FONT_SIZES["4"],
+  h4: FONT_SIZES["3"],
+  h5: FONT_SIZES["2"],
+  h6: FONT_SIZES["1"],
+  p: FONT_SIZES["1"],
+  label: FONT_SIZES["0"],
 };
 export type TextStyles = keyof typeof TEXT_STYLES;
 

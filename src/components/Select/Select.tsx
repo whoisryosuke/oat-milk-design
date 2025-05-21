@@ -15,6 +15,11 @@ type StyledSelectProps = {
 };
 
 const StyledSelect = styled.select<StyledSelectProps>`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+
   color: ${({ theme }) => theme.colors.interactiveText};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.radius[0]};

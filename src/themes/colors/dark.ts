@@ -19,13 +19,13 @@ const shadows = {
 export const generateDarkTheme = (color: ThemeColors) => ({
   colors: {
     text: BASE_COLORS["gray-2"],
-    disabled: BASE_COLORS["gray-4"],
+    disabled: BASE_COLORS["gray-8"],
     disabledText: BASE_COLORS["gray-3"],
 
     background: BASE_COLORS["gray-9"],
     icon: BASE_COLORS["gray-5"],
 
-    border: BASE_COLORS["gray-9"],
+    border: BASE_COLORS["gray-7"],
     borderHovered: BASE_COLORS[`gray-7`],
     borderPressed: BASE_COLORS[`${color}-8`],
     borderDisabled: BASE_COLORS["gray-5"],
@@ -39,6 +39,7 @@ export const generateDarkTheme = (color: ThemeColors) => ({
     interactiveTextPressed: BASE_COLORS[`gray-2`],
 
     inputBg: BASE_COLORS["gray-9"],
+    inputText: BASE_COLORS["gray-2"],
 
     ...BASE_COLORS,
   },

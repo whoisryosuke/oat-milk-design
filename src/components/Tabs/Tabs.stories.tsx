@@ -52,7 +52,7 @@ const MOCK_TABS = [
 
 export const Value: Story = {
   args: {
-    tabs: MOCK_TABS,
+    tabs: [],
     width: "500px",
   },
 };

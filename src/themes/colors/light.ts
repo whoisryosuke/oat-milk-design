@@ -1,72 +1,59 @@
-export const primaryColors = {
-  text: "rgba(234,234,241,1)",
-  textOverlay: "rgba(234,234,241,0.7)",
-  textInverted: "rgba(234,234,241,1)",
-  reading: "rgba(16,15,40,1)",
-  background: "rgba(239,239,239,1)",
-  background_level1: "rgba(225,225,225,1)",
-  background_level2: "rgba(200,200,200,1)",
-  background_level3: "rgba(185,185,185,1)",
-  background_overlay: "rgba(0,0,0,0.6)",
-  button: {
-    default: "rgba(242, 242, 242, 0.1)",
-    hovered: "rgba(242, 242, 242, 0.3)",
-    pressed: "rgba(255, 255, 255, 1.0)",
-    pressedText: "rgba(0,0,0,1.0)",
-    disabledText: "rgba(234,234,241,0.3)",
-  },
-  primary: {
-    default: "#1B76FF",
-    hovered: "#78AEFF",
-    pressed: "#0C4294",
-  },
-  // secondary: primaryColors.purple[500],
-  muted: "#b6b6b9",
-  highlight: "hsla(205, 100%, 40%, 0.125)",
+import { BASE_COLORS, ThemeColors } from "./base";
 
-  success: "green",
-  message: "blue",
-  warning: "yellow",
-  danger: "red",
+const shadows = {
+  default: `0px 2px 8.4px rgba(0, 0, 0, 0.5),
+    0px 0px 16.4px rgba(255, 255, 255, 0.1),
+    inset 0px 3px 2px rgba(255, 255, 255, 0.25),
+    inset 0px -8px 3px rgba(0, 0, 0, 0.25)`,
+  hovered: `0px 2px 8.4px rgba(0, 0, 0, 0.5),
+      0px 0px 16.4px rgba(255, 255, 255, 0.1),
+      inset 0px 3px 2px rgba(255, 255, 255, 0.25),
+      inset 0px -8px 3px rgba(0, 0, 0, 0.25)`,
+  pressed: `0px 2px 8.4px rgba(0, 0, 0, 0.5),
+      0px 0px 16.4px rgba(153, 233, 242, 0.5),
+      inset 0px -3px 2px rgba(255, 255, 255, 0.25),
+      inset 0px 8px 3px rgba(0, 0, 0, 0.25)`,
+  text: `1px 1px 2px rgba(0, 0, 0, 0.2)`,
 };
 
-export const colors = {
-  ...primaryColors,
-};
+export const generateLightTheme = (color: ThemeColors) => ({
+  colors: {
+    text: BASE_COLORS["gray-9"],
+    disabled: BASE_COLORS["gray-4"],
+    disabledText: BASE_COLORS["gray-3"],
 
-export const gradients = {
-  // subtle: `linear-gradient(180deg, ${colors.blue['500']} 0%, ${colors.secondary} 100%)`,
-  // purple: `linear-gradient(180deg, ${colors.primary} 0%, #A000C4 100%)`,
-  none: "none",
-  background:
-    "radial-gradient(73.75% 106.2% at 5.07% 34.92%, #F9F9F9 0%, #C9CBCC 100%)",
-  glass: {
-    border:
-      "radial-gradient(253.85% 474.76% at 50% -83.65%, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.0) 33%, rgba(255, 255, 255, 0.16) 100%)",
-  },
-  blue: {
-    default: `linear-gradient(90deg, #1B76FF 0%, #0C4294 36.1%);`,
-    hover: `linear-gradient(90deg, #78AEFF 0%, #1B76FF 36.1%);`,
-  },
-  text: {
-    blue: {
-      default: `-webkit-linear-gradient(90deg, #1F1BD8 0%, #4845EF 36.1%);`,
-      hover: `-webkit-linear-gradient(90deg, #4845EF 0%, #1F1BD8 36.1%);`,
-    },
-    text: {
-      default: `-webkit-linear-gradient(90deg, #060613 0%, #141419 36.1%);`,
-      hover: `-webkit-linear-gradient(90deg, #141419 0%, #242429 36.1%);`,
-    },
-    invert: {
-      default: `-webkit-linear-gradient(90deg, #BBB 0%, #DDD 36.1%);`,
-      hover: `-webkit-linear-gradient(90deg, #DDD 0%, #EEE 36.1%);`,
-    },
-  },
-};
+    background: BASE_COLORS["gray-2"],
+    icon: BASE_COLORS["gray-5"],
 
-const light = {
-  colors,
-  gradients,
-};
+    border: BASE_COLORS["gray-7"],
+    borderHovered: BASE_COLORS[`gray-5`],
+    borderPressed: BASE_COLORS[`${color}-8`],
+    borderDisabled: BASE_COLORS["gray-3"],
 
-export default light;
+    focusBg: BASE_COLORS[`${color}-8`],
+    interactiveText: BASE_COLORS["gray-9"],
+    interactiveBg: "transparent",
+    interactiveBgHovered: BASE_COLORS["gray-7"],
+    interactiveBgSelected: BASE_COLORS["gray-8"],
+    interactiveBgPressed: BASE_COLORS[`${color}-8`],
+    interactiveTextPressed: BASE_COLORS[`gray-2`],
+
+    inputBg: BASE_COLORS["gray-4"],
+    inputText: BASE_COLORS["gray-1"],
+
+    ...BASE_COLORS,
+  },
+
+  gradients: {
+    primary: `linear-gradient(90deg, ${BASE_COLORS[`${color}-2`]} 0%, ${
+      BASE_COLORS[`${color}-4`]
+    } 100%)`,
+    button: `linear-gradient(180deg, ${BASE_COLORS[`${color}-7`]} 42.5%, ${
+      BASE_COLORS[`${color}-8`]
+    } 100%)`,
+  },
+
+  shadows: shadows,
+});
+
+export default generateLightTheme;

@@ -46,12 +46,16 @@ const StyledButton = styled.button<StyledProps>`
     up([bg], theme.colors, theme.colors.interactiveBg)};
   color: ${({ theme }) => theme.colors.interactiveText};
   border-radius: ${({ theme, borderRadius }) =>
-    borderRadius ? theme.radius[borderRadius] : 0};
+    borderRadius != undefined ? theme.radius[borderRadius] : theme.radius[0]};
 
-  padding-left: ${({ theme, p, px, pl }) => up([pl, px, p], theme.space, 0)};
-  padding-right: ${({ theme, p, px, pr }) => up([pr, px, p], theme.space, 0)};
-  padding-top: ${({ theme, p, py, pt }) => up([pt, py, p], theme.space, 0)};
-  padding-bottom: ${({ theme, p, py, pb }) => up([pb, py, p], theme.space, 0)};
+  padding-left: ${({ theme, p, px, pl }) =>
+    up([pl, px, p], theme.space, theme.space[6])};
+  padding-right: ${({ theme, p, px, pr }) =>
+    up([pr, px, p], theme.space, theme.space[6])};
+  padding-top: ${({ theme, p, py, pt }) =>
+    up([pt, py, p], theme.space, theme.space[3])};
+  padding-bottom: ${({ theme, p, py, pb }) =>
+    up([pb, py, p], theme.space, theme.space[3])};
 
   margin-left: ${({ theme, m, mx, ml }) => up([ml, mx, m], theme.space, 0)};
   margin-right: ${({ theme, m, mx, mr }) => up([mr, mx, m], theme.space, 0)};
@@ -116,9 +120,9 @@ const StyledButton = styled.button<StyledProps>`
 const Button = ({
   children,
   fontFamily,
-  fontSize,
+  fontSize = 2,
   fontWeight,
-  lineHeight,
+  lineHeight = 3,
   icon,
   ...props
 }: PropsWithChildren<Props>) => {
