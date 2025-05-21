@@ -1,4 +1,4 @@
-![Oat Milk Design logo](/docs/branding/White%20on%20Black%20BG.png)
+![Oat Milk Design logo](/docs/branding/White%20on%20Black%20BG_V2.png)
 
 # Oat Milk Design
 
