@@ -148,6 +148,7 @@ const SliderTrack = styled(AriaSliderTrack)`
 type Props = typeof AriaSlider & {
   label?: string;
   showOutput?: boolean;
+  value: number;
 };
 
 const Slider = ({ label, showOutput, ...props }: Props) => {
