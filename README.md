@@ -7,8 +7,9 @@ Design system and UI components for prototyping.
 ## Getting Started
 
 1. Install the library: `yarn add @whoisryosuke/oat-milk-design`
-2. Wrap your app in the `<AppWrapper>` component.
-3. Add the fonts to your app wherever appropriate (ideally in the `<head>` of the HTML):
+1. Install peer dependencies: `yarn add @emotion/react@^11.14.0 @emotion/styled@^11.14.0 zustand@^5.0.3`
+1. Wrap your app in the `<AppWrapper>` component.
+1. Add the fonts to your app wherever appropriate (ideally in the `<head>` of the HTML):
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +24,9 @@ Design system and UI components for prototyping.
 
 ### Icons
 
-Use Box Icons from `react-icons`:
+This library supports any icon library that can be used as a React component.
+
+We recommend using Box Icons from `react-icons` to match the design system:
 
 ```shell
 yarn add react-icons
