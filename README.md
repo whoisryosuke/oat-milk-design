@@ -49,6 +49,8 @@ Write code in `src/` and export any components, functions, etc in the `index.ts`
 
 ### Release
 
+> Make sure to run `yarn build` locally to check for any build errors (usually types).
+
 **Using GitHub:**
 
 1. [Run the new version GitHub action.](https://github.com/whoisryosuke/oat-milk-design/actions/workflows/generate-version-tag.yml)

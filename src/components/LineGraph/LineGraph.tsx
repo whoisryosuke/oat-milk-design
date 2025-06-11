@@ -1,5 +1,4 @@
 import { ComponentProps, useCallback, useEffect, useRef } from "react";
-import Box from "../Box/Box";
 import { BASE_COLORS, ThemeColors } from "../../themes/colors/base";
 import map from "../../utils/map";
 import styled from "@emotion/styled";

@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import Box, { BoxProps } from "../Box/Box";
 
-type Props = BoxProps & {};
+type Props = BoxProps;
 
 // TODO: Add standard responsive container sizes (mobile, tablet, etc) and center it
 const Container = (props: PropsWithChildren<Props>) => {
