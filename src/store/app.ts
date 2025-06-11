@@ -4,7 +4,7 @@ import { ThemeOptions } from "../themes";
 import { ThemeColors } from "../themes/colors/base";
 // import type {} from "@redux-devtools/extension"; // required for devtools typing
 
-interface AppState {
+interface ThemeState {
   // Theming
   theme: ThemeOptions;
   setTheme: (theme: ThemeOptions) => void;
@@ -13,7 +13,7 @@ interface AppState {
   setColorMode: (colorMode: ThemeColors) => void;
 }
 
-export const useAppStore = create<AppState>()(
+export const useThemeStore = create<ThemeState>()(
   devtools((set) => ({
     theme: "dark",
     setTheme: (theme) => set(() => ({ theme })),

@@ -4,7 +4,7 @@ import Heading from "./components/Text/Heading/Heading";
 import Paragraph from "./components/Text/Paragraph/Paragraph";
 import Text from "./components/Text/Text";
 import Stack from "./components/Stack/Stack";
-import { useAppStore } from "./store/app";
+import { useThemeStore } from "./store/app";
 import Button from "./components/Button/Button";
 import ColorScheme from "./components/ColorScheme/ColorScheme";
 import Input from "./components/Input/Input";
@@ -17,6 +17,9 @@ import Select from "./components/Select/Select";
 import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
 import InputLabel from "./components/Input/InputLabel";
 import ThemeProvider from "./components/ThemeProvider/ThemeProvider";
+import generateLightTheme from "./themes/colors/light";
+import generateDarkTheme from "./themes/colors/dark";
+import { BASE_COLORS as baseColors } from "./themes/colors/base";
 
 export {
   AppWrapper,
@@ -37,5 +40,8 @@ export {
   Tabs,
   ThemeProvider,
   Text,
-  useAppStore,
+  useThemeStore,
+  generateLightTheme,
+  generateDarkTheme,
+  baseColors,
 };

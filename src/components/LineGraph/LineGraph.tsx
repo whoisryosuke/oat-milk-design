@@ -2,7 +2,7 @@ import { ComponentProps, useCallback, useEffect, useRef } from "react";
 import { BASE_COLORS, ThemeColors } from "../../themes/colors/base";
 import map from "../../utils/map";
 import styled from "@emotion/styled";
-import { useAppStore } from "../../store/app";
+import { useThemeStore } from "../../store/app";
 
 const StyledCanvas = styled.canvas`
   border: 1.5px solid ${({ theme }) => theme.colors.border};
@@ -18,7 +18,7 @@ type Props = ComponentProps<"canvas"> & {
 };
 
 const LineGraph = ({ data = [], color = "blue", ...props }: Props) => {
-  const { theme } = useAppStore();
+  const { theme } = useThemeStore();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const draw = useCallback(
