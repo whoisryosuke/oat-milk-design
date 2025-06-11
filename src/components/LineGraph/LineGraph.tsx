@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { ComponentProps, useCallback, useEffect, useRef } from "react";
 import Box from "../Box/Box";
 import { BASE_COLORS, ThemeColors } from "../../themes/colors/base";
 import map from "../../utils/map";
@@ -13,12 +13,12 @@ const StyledCanvas = styled.canvas`
 // Assuming numbers are 0-1
 type GraphData = number[];
 
-type Props = {
+type Props = ComponentProps<"canvas"> & {
   data: GraphData;
-  color: ThemeColors;
+  color?: ThemeColors;
 };
 
-const LineGraph = ({ data, color = "blue", ...props }: Props) => {
+const LineGraph = ({ data = [], color = "blue", ...props }: Props) => {
   const { theme } = useAppStore();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -63,11 +63,7 @@ const LineGraph = ({ data, color = "blue", ...props }: Props) => {
     draw(theme);
   }, [draw, theme]);
 
-  return (
-    <Box {...props}>
-      <StyledCanvas ref={canvasRef} />
-    </Box>
-  );
+  return <StyledCanvas ref={canvasRef} {...props} />;
 };
 
 export default LineGraph;

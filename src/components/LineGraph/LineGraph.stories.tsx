@@ -38,7 +38,7 @@ const MOCK_DATA = new Array(1024 / DETAIL).fill(0).map(() => Math.random());
 export const Value: Story = {
   args: {
     data: MOCK_DATA,
-    width: "500px",
+    width: "420px",
   },
 };
 
@@ -46,6 +46,6 @@ export const Color: Story = {
   args: {
     data: MOCK_DATA,
     color: "green",
-    width: "500px",
+    width: "600px",
   },
 };
